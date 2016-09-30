@@ -85,6 +85,15 @@
     backup: yes
     follow: yes
 
+- name: Add 8.8.8.8 resolv.conf
+  lineinfile:
+    line: "nameserver 8.8.8.8"
+    dest: "{{resolvconffile}}"
+    state: present
+    insertbefore: BOF
+    backup: yes
+    follow: yes
+
 - name: Add local dnsmasq to resolv.conf
   lineinfile:
     line: "nameserver {{item}}"
