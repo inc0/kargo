@@ -22,7 +22,7 @@
 - name: Hosts | localhost ipv4 in hosts file
   lineinfile:
     dest: /etc/hosts
-    line: "127.0.0.1 localhost localhost.localdomain"
+    line: "127.0.0.1 localhost localhost.localdomain {{ ansible_hostname }}"
     regexp: '^127.0.0.1.*$'
     state: present
     backup: yes
